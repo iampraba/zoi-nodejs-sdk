@@ -1,5 +1,5 @@
 {
-    "name": "zoi-js-sdk",
+    "name": "zoi-nodejs-sdk",
     "title": "Zoho Office Integrator NodeJS SDK",
     "description": "NodeJS SDK to integrate zoho office suite editors in to web application.",
     "version": "1.0.0",

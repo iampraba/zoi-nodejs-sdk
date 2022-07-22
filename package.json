@@ -1,0 +1,36 @@
+{
+    "name": "zoi-js-sdk",
+    "title": "Zoho Office Integrator NodeJS SDK",
+    "description": "NodeJS SDK to integrate zoho office suite editors in to web application.",
+    "version": "1.0.0",
+    "homepage": "https://www.zoho.com/officeplatform/integrator",
+    "author": {
+        "name": "Team - Zoho Office Integrator",
+        "email": "support@zohoofficeintegrator.com"
+    },
+    "main": "index.js",
+    "maintainers": [
+        {
+            "name": "Support - Zoho Office Integrator",
+            "email": "support@zohoofficeintegrator.com",
+            "url": "https://www.zoho.com/officeplatform/integrator/contact-support.html"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/iampraba/zoi-js-sdk.git"
+    },
+    "bugs": {
+        "url": "https://github.com/iampraba/zoi-js-sdk/issues"
+    },
+    "license": "Apache-2.0",
+    "dependencies": {
+        "form-data": "^4.0.0",
+        "got": "^11.2.0",
+        "tunnel": "^0.0.6",
+        "winston": "^3.7.2"
+    },
+    "keywords": [ 
+        "zoho"
+    ]
+}

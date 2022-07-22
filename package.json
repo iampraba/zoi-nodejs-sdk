@@ -18,10 +18,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/iampraba/zoi-js-sdk.git"
+        "url": "https://github.com/iampraba/zoi-nodejs-sdk.git"
     },
     "bugs": {
-        "url": "https://github.com/iampraba/zoi-js-sdk/issues"
+        "url": "https://github.com/iampraba/zoi-nodejs-sdk/issues"
     },
     "license": "Apache-2.0",
     "dependencies": {

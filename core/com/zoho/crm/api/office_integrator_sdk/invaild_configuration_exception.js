@@ -32,7 +32,7 @@ class InvaildConfigurationException{
 
 	/**
 	 * The method to get the code
-	 * @returns {BigInt} A BigInt representing the code
+	 * @returns {number} A number representing the code
 	 */
 	getCode()	{
 		return this.code;
@@ -41,11 +41,11 @@ class InvaildConfigurationException{
 
 	/**
 	 * The method to set the value to code
-	 * @param {BigInt} code A BigInt representing the code
+	 * @param {number} code A number representing the code
 	 */
 	setCode(code)	{
-		if((code != null) && (!(Object.prototype.toString.call(code) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: code EXPECTED TYPE: BigInt", null, null);
+		if((code != null) && (!(Object.prototype.toString.call(code) == "[object Number]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: code EXPECTED TYPE: number", null, null);
 		}
 		this.code = code;
 		this.keyModified.set("code", 1);

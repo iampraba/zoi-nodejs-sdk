@@ -3,10 +3,35 @@ const SDKException = require("../exception/sdk_exception").MasterModel;
 
 class SheetPreviewResponse{
 
+	gridviewUrl;
 	previewUrl;
 	documentId;
+	sessionId;
+	sessionDeleteUrl;
 	documentDeleteUrl;
 	keyModified = new Map();
+	/**
+	 * The method to get the gridviewUrl
+	 * @returns {String} A String representing the gridviewUrl
+	 */
+	getGridviewUrl()	{
+		return this.gridviewUrl;
+
+	}
+
+	/**
+	 * The method to set the value to gridviewUrl
+	 * @param {String} gridviewUrl A String representing the gridviewUrl
+	 */
+	setGridviewUrl(gridviewUrl)	{
+		if((gridviewUrl != null) && (!(Object.prototype.toString.call(gridviewUrl) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: gridviewUrl EXPECTED TYPE: String", null, null);
+		}
+		this.gridviewUrl = gridviewUrl;
+		this.keyModified.set("gridview_url", 1);
+
+	}
+
 	/**
 	 * The method to get the previewUrl
 	 * @returns {String} A String representing the previewUrl
@@ -48,6 +73,50 @@ class SheetPreviewResponse{
 		}
 		this.documentId = documentId;
 		this.keyModified.set("document_id", 1);
+
+	}
+
+	/**
+	 * The method to get the sessionId
+	 * @returns {String} A String representing the sessionId
+	 */
+	getSessionId()	{
+		return this.sessionId;
+
+	}
+
+	/**
+	 * The method to set the value to sessionId
+	 * @param {String} sessionId A String representing the sessionId
+	 */
+	setSessionId(sessionId)	{
+		if((sessionId != null) && (!(Object.prototype.toString.call(sessionId) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionId EXPECTED TYPE: String", null, null);
+		}
+		this.sessionId = sessionId;
+		this.keyModified.set("session_id", 1);
+
+	}
+
+	/**
+	 * The method to get the sessionDeleteUrl
+	 * @returns {String} A String representing the sessionDeleteUrl
+	 */
+	getSessionDeleteUrl()	{
+		return this.sessionDeleteUrl;
+
+	}
+
+	/**
+	 * The method to set the value to sessionDeleteUrl
+	 * @param {String} sessionDeleteUrl A String representing the sessionDeleteUrl
+	 */
+	setSessionDeleteUrl(sessionDeleteUrl)	{
+		if((sessionDeleteUrl != null) && (!(Object.prototype.toString.call(sessionDeleteUrl) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionDeleteUrl EXPECTED TYPE: String", null, null);
+		}
+		this.sessionDeleteUrl = sessionDeleteUrl;
+		this.keyModified.set("session_delete_url", 1);
 
 	}
 

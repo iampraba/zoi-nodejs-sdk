@@ -11,6 +11,7 @@ class CreateSheetParameters{
 	permissions;
 	documentInfo;
 	userInfo;
+	uiOptions;
 	keyModified = new Map();
 	/**
 	 * The method to get the url
@@ -167,6 +168,29 @@ class CreateSheetParameters{
 		}
 		this.userInfo = userInfo;
 		this.keyModified.set("user_info", 1);
+
+	}
+
+	/**
+	 * The method to get the uiOptions
+	 * @returns {SheetUiOptions} An instance of SheetUiOptions
+	 */
+	getUiOptions()	{
+		return this.uiOptions;
+
+	}
+
+	/**
+	 * The method to set the value to uiOptions
+	 * @param {SheetUiOptions} uiOptions An instance of SheetUiOptions
+	 */
+	setUiOptions(uiOptions)	{
+		const SheetUiOptions = require("./sheet_ui_options").MasterModel;
+		if((uiOptions != null) && (!(uiOptions instanceof SheetUiOptions)))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: uiOptions EXPECTED TYPE: SheetUiOptions", null, null);
+		}
+		this.uiOptions = uiOptions;
+		this.keyModified.set("ui_options", 1);
 
 	}
 

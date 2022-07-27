@@ -47,11 +47,11 @@ class FormDataConverter extends Converter {
                     this.addFileBody(value, formData);
                 }
                 else {
-                    formData.append(key, JSON.stringify(value));
+                    formData.append(key, await this.isObject(value) ? JSON.stringify(value) : value);
                 }
             }
             else {
-                formData.append(key, JSON.stringify(value));
+                formData.append(key, await this.isObject(value) ? JSON.stringify(value) : value);
             }
         }
     }

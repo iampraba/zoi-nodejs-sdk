@@ -78,7 +78,7 @@ class DocumentDefaults{
 
 	/**
 	 * The method to get the fontSize
-	 * @returns {BigInt} A BigInt representing the fontSize
+	 * @returns {number} A number representing the fontSize
 	 */
 	getFontSize()	{
 		return this.fontSize;
@@ -87,11 +87,11 @@ class DocumentDefaults{
 
 	/**
 	 * The method to set the value to fontSize
-	 * @param {BigInt} fontSize A BigInt representing the fontSize
+	 * @param {number} fontSize A number representing the fontSize
 	 */
 	setFontSize(fontSize)	{
-		if((fontSize != null) && (!(Object.prototype.toString.call(fontSize) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: fontSize EXPECTED TYPE: BigInt", null, null);
+		if((fontSize != null) && (!(Object.prototype.toString.call(fontSize) == "[object Number]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: fontSize EXPECTED TYPE: number", null, null);
 		}
 		this.fontSize = fontSize;
 		this.keyModified.set("font_size", 1);

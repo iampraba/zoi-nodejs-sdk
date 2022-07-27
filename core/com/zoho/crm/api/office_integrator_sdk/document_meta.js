@@ -8,7 +8,7 @@ class DocumentMeta{
 	keyModified = new Map();
 	/**
 	 * The method to get the collaboratorsCount
-	 * @returns {BigInt} A BigInt representing the collaboratorsCount
+	 * @returns {number} A number representing the collaboratorsCount
 	 */
 	getCollaboratorsCount()	{
 		return this.collaboratorsCount;
@@ -17,11 +17,11 @@ class DocumentMeta{
 
 	/**
 	 * The method to set the value to collaboratorsCount
-	 * @param {BigInt} collaboratorsCount A BigInt representing the collaboratorsCount
+	 * @param {number} collaboratorsCount A number representing the collaboratorsCount
 	 */
 	setCollaboratorsCount(collaboratorsCount)	{
-		if((collaboratorsCount != null) && (!(Object.prototype.toString.call(collaboratorsCount) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: collaboratorsCount EXPECTED TYPE: BigInt", null, null);
+		if((collaboratorsCount != null) && (!(Object.prototype.toString.call(collaboratorsCount) == "[object Number]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: collaboratorsCount EXPECTED TYPE: number", null, null);
 		}
 		this.collaboratorsCount = collaboratorsCount;
 		this.keyModified.set("collaborators_count", 1);

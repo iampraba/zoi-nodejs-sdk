@@ -270,13 +270,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to get session
-	 * @param {BigInt} sessionid A BigInt representing the sessionid
+	 * @param {String} sessionid A String representing the sessionid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async getSession(sessionid)	{
-		if((!(Object.prototype.toString.call(sessionid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(sessionid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
@@ -292,13 +292,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to delete session
-	 * @param {BigInt} sessionid A BigInt representing the sessionid
+	 * @param {String} sessionid A String representing the sessionid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async deleteSession(sessionid)	{
-		if((!(Object.prototype.toString.call(sessionid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(sessionid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
@@ -314,13 +314,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to get document info
-	 * @param {BigInt} documentid A BigInt representing the documentid
+	 * @param {String} documentid A String representing the documentid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async getDocumentInfo(documentid)	{
-		if((!(Object.prototype.toString.call(documentid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(documentid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
@@ -336,13 +336,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to delete document
-	 * @param {BigInt} documentid A BigInt representing the documentid
+	 * @param {String} documentid A String representing the documentid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async deleteDocument(documentid)	{
-		if((!(Object.prototype.toString.call(documentid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(documentid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
@@ -406,13 +406,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to get sheet session
-	 * @param {BigInt} sessionid A BigInt representing the sessionid
+	 * @param {String} sessionid A String representing the sessionid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async getSheetSession(sessionid)	{
-		if((!(Object.prototype.toString.call(sessionid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(sessionid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
@@ -428,13 +428,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to delete sheet session
-	 * @param {BigInt} sessionid A BigInt representing the sessionid
+	 * @param {String} sessionid A String representing the sessionid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async deleteSheetSession(sessionid)	{
-		if((!(Object.prototype.toString.call(sessionid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(sessionid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
@@ -450,13 +450,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to delete sheet
-	 * @param {BigInt} documentid A BigInt representing the documentid
+	 * @param {String} documentid A String representing the documentid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async deleteSheet(documentid)	{
-		if((!(Object.prototype.toString.call(documentid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(documentid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
@@ -520,13 +520,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to get presentation session
-	 * @param {BigInt} sessionid A BigInt representing the sessionid
+	 * @param {String} sessionid A String representing the sessionid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async getPresentationSession(sessionid)	{
-		if((!(Object.prototype.toString.call(sessionid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(sessionid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
@@ -542,13 +542,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to delete presentation session
-	 * @param {BigInt} sessionid A BigInt representing the sessionid
+	 * @param {String} sessionid A String representing the sessionid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async deletePresentationSession(sessionid)	{
-		if((!(Object.prototype.toString.call(sessionid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(sessionid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
@@ -564,13 +564,13 @@ class OfficeIntegratorSDKOperations{
 
 	/**
 	 * The method to delete presentation
-	 * @param {BigInt} documentid A BigInt representing the documentid
+	 * @param {String} documentid A String representing the documentid
 	 * @returns {APIResponse} An instance of APIResponse
 	 * @throws {SDKException}
 	 */
 	async deletePresentation(documentid)	{
-		if((!(Object.prototype.toString.call(documentid) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentid EXPECTED TYPE: BigInt", null, null);
+		if((!(Object.prototype.toString.call(documentid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentid EXPECTED TYPE: String", null, null);
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';

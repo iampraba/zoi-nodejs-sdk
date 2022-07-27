@@ -78,7 +78,7 @@ class FillableCallbackSettings{
 
 	/**
 	 * The method to get the retries
-	 * @returns {BigInt} A BigInt representing the retries
+	 * @returns {number} A number representing the retries
 	 */
 	getRetries()	{
 		return this.retries;
@@ -87,11 +87,11 @@ class FillableCallbackSettings{
 
 	/**
 	 * The method to set the value to retries
-	 * @param {BigInt} retries A BigInt representing the retries
+	 * @param {number} retries A number representing the retries
 	 */
 	setRetries(retries)	{
-		if((retries != null) && (!(Object.prototype.toString.call(retries) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: retries EXPECTED TYPE: BigInt", null, null);
+		if((retries != null) && (!(Object.prototype.toString.call(retries) == "[object Number]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: retries EXPECTED TYPE: number", null, null);
 		}
 		this.retries = retries;
 		this.keyModified.set("retries", 1);
@@ -100,7 +100,7 @@ class FillableCallbackSettings{
 
 	/**
 	 * The method to get the timeout
-	 * @returns {BigInt} A BigInt representing the timeout
+	 * @returns {number} A number representing the timeout
 	 */
 	getTimeout()	{
 		return this.timeout;
@@ -109,11 +109,11 @@ class FillableCallbackSettings{
 
 	/**
 	 * The method to set the value to timeout
-	 * @param {BigInt} timeout A BigInt representing the timeout
+	 * @param {number} timeout A number representing the timeout
 	 */
 	setTimeout(timeout)	{
-		if((timeout != null) && (!(Object.prototype.toString.call(timeout) == "[object BigInt]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: timeout EXPECTED TYPE: BigInt", null, null);
+		if((timeout != null) && (!(Object.prototype.toString.call(timeout) == "[object Number]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: timeout EXPECTED TYPE: number", null, null);
 		}
 		this.timeout = timeout;
 		this.keyModified.set("timeout", 1);

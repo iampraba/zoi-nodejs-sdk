@@ -1,12 +1,9 @@
 const Constants = require("../../../../../../utils/util/constants").MasterModel;
 const SDKException = require("../exception/sdk_exception").MasterModel;
 
-class UiOptions{
+class SheetUiOptions{
 
 	saveButton;
-	chatPanel;
-	fileMenu;
-	darkMode;
 	keyModified = new Map();
 	/**
 	 * The method to get the saveButton
@@ -27,72 +24,6 @@ class UiOptions{
 		}
 		this.saveButton = saveButton;
 		this.keyModified.set("save_button", 1);
-
-	}
-
-	/**
-	 * The method to get the chatPanel
-	 * @returns {String} A String representing the chatPanel
-	 */
-	getChatPanel()	{
-		return this.chatPanel;
-
-	}
-
-	/**
-	 * The method to set the value to chatPanel
-	 * @param {String} chatPanel A String representing the chatPanel
-	 */
-	setChatPanel(chatPanel)	{
-		if((chatPanel != null) && (!(Object.prototype.toString.call(chatPanel) == "[object String]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: chatPanel EXPECTED TYPE: String", null, null);
-		}
-		this.chatPanel = chatPanel;
-		this.keyModified.set("chat_panel", 1);
-
-	}
-
-	/**
-	 * The method to get the fileMenu
-	 * @returns {String} A String representing the fileMenu
-	 */
-	getFileMenu()	{
-		return this.fileMenu;
-
-	}
-
-	/**
-	 * The method to set the value to fileMenu
-	 * @param {String} fileMenu A String representing the fileMenu
-	 */
-	setFileMenu(fileMenu)	{
-		if((fileMenu != null) && (!(Object.prototype.toString.call(fileMenu) == "[object String]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: fileMenu EXPECTED TYPE: String", null, null);
-		}
-		this.fileMenu = fileMenu;
-		this.keyModified.set("file_menu", 1);
-
-	}
-
-	/**
-	 * The method to get the darkMode
-	 * @returns {String} A String representing the darkMode
-	 */
-	getDarkMode()	{
-		return this.darkMode;
-
-	}
-
-	/**
-	 * The method to set the value to darkMode
-	 * @param {String} darkMode A String representing the darkMode
-	 */
-	setDarkMode(darkMode)	{
-		if((darkMode != null) && (!(Object.prototype.toString.call(darkMode) == "[object String]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: darkMode EXPECTED TYPE: String", null, null);
-		}
-		this.darkMode = darkMode;
-		this.keyModified.set("dark_mode", 1);
 
 	}
 
@@ -130,6 +61,6 @@ class UiOptions{
 
 }
 module.exports = {
-	MasterModel : UiOptions,
-	UiOptions : UiOptions
+	MasterModel : SheetUiOptions,
+	SheetUiOptions : SheetUiOptions
 }

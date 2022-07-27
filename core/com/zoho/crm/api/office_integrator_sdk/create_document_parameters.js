@@ -197,7 +197,7 @@ class CreateDocumentParameters{
 
 	/**
 	 * The method to get the uiOptions
-	 * @returns {UIOptions} An instance of UIOptions
+	 * @returns {UiOptions} An instance of UiOptions
 	 */
 	getUiOptions()	{
 		return this.uiOptions;
@@ -206,12 +206,12 @@ class CreateDocumentParameters{
 
 	/**
 	 * The method to set the value to uiOptions
-	 * @param {UIOptions} uiOptions An instance of UIOptions
+	 * @param {UiOptions} uiOptions An instance of UiOptions
 	 */
 	setUiOptions(uiOptions)	{
 		const UiOptions = require("./ui_options").MasterModel;
-		if((uiOptions != null) && (!(uiOptions instanceof UIOptions)))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: uiOptions EXPECTED TYPE: UIOptions", null, null);
+		if((uiOptions != null) && (!(uiOptions instanceof UiOptions)))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: uiOptions EXPECTED TYPE: UiOptions", null, null);
 		}
 		this.uiOptions = uiOptions;
 		this.keyModified.set("ui_options", 1);

@@ -1,7 +1,7 @@
 const DataCenter = require("./data_center").DataCenter;
 
 /**
- * This class represents the properties of Zoho CRM in AU Domain.
+ * This class represents the properties of Zoho in AU Domain.
  * @extends DataCenter
  */
 class AUDataCenter extends DataCenter {
@@ -15,7 +15,7 @@ class AUDataCenter extends DataCenter {
     static AU = new AUDataCenter();
 
     /**
-     * This method represents the Zoho CRM Production environment in AU domain
+     * This method represents the Zoho Production environment in AU domain
      * @returns {Environment} An instance of Environment
      */
     static PRODUCTION() {
@@ -28,7 +28,7 @@ class AUDataCenter extends DataCenter {
     }
 
     /**
-     * This method represents the Zoho CRM Sandbox environment in AU domain
+     * This method represents the Zoho Sandbox environment in AU domain
      * @returns {Environment} An instance of Environment
      */
     static SANDBOX() {
@@ -40,7 +40,7 @@ class AUDataCenter extends DataCenter {
     }
 
     /**
-     * This method represents the Zoho CRM Developer environment in AU domain
+     * This method represents the Zoho Developer environment in AU domain
      * @returns {Environment} An instance of Environment
      */
     static DEVELOPER() {

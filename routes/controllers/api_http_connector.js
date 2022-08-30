@@ -116,7 +116,7 @@ class APIHTTPConnector {
     }
 
 	/**
-	 * This method makes the Zoho CRM Rest API request.
+	 * This method makes the Zoho Rest API request.
 	 * @param {object} converterInstance A Converter class instance to call appendToRequest method.
 	 * @returns got instance or null
 	 *
@@ -125,10 +125,6 @@ class APIHTTPConnector {
 		var apiHeaders = {};
 
 		var modifiedRequestBody = "";
-
-		if (this.contentType != null) {
-			this.setContentTypeHeader();
-		}
 
 		if (this.headers) {
 			this.headers.forEach(function (value, key) {
@@ -216,16 +212,6 @@ class APIHTTPConnector {
 		});
 
 		this.url = this.url + '?' + params;
-	}
-
-	setContentTypeHeader() {
-		for (let url of Constants.SET_TO_CONTENT_TYPE) {
-			if (this.url.includes(url)) {
-				this.headers.set(Constants.CONTENT_TYPE_HEADER, this.contentType);
-
-				return;
-			}
-		}
 	}
 
 	toString() {

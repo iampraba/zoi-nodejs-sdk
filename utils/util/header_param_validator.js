@@ -1,10 +1,10 @@
 const path = require("path");
 const Constants = require("./constants").Constants;
-const SDKException = require("../../core/com/zoho/crm/api/exception/sdk_exception").SDKException
+const SDKException = require("../../routes/exception/sdk_exception").SDKException;
 const DataTypeConverter = require("./datatype_converter").DatatypeConverter;
 const Utility = require("./utility").Utility;
 /**
- * This class validates the Header and Parameter values with the type accepted by the CRM APIs.
+ * This class validates the Header and Parameter values with the type accepted by the Zoho APIs.
  */
 class HeaderParamValidator {
     async validate(headerParam, value) {

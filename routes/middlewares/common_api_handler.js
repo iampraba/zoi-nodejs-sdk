@@ -13,7 +13,7 @@ const Constants = require("../../utils/util/constants").Constants;
 const FormDataConverter = require("../../utils/util/form_data_converter").FormDataConverter;
 const Downloader = require("../../utils/util/downloader").Downloader;
 const os = require('os');
-const SDKException = require("../../core/com/zoho/crm/api/exception/sdk_exception").SDKException;
+const SDKException = require('../../routes/exception/sdk_exception').SDKException;
 
 /**
 * This class is to process the API request and its response.
@@ -112,16 +112,16 @@ class CommonAPIHandler {
 	}
 
 	/**
-	 * This is a getter method to get the Zoho CRM module API name.
-	 * @returns A String representing the Zoho CRM module API name.
+	 * This is a getter method to get the Zoho module API name.
+	 * @returns A String representing the Zoho module API name.
 	 */
 	getModuleAPIName() {
 		return this.moduleAPIName;
 	}
 
 	/**
-	 * This is a setter method to set the Zoho CRM module API name.
-	 * @param {string} moduleAPIName - A String containing the Zoho CRM module API name.
+	 * This is a setter method to set the Zoho module API name.
+	 * @param {string} moduleAPIName - A String containing the Zoho module API name.
 	 */
 	setModuleAPIName(moduleAPIName) {
 		this.moduleAPIName = moduleAPIName;
@@ -163,11 +163,11 @@ class CommonAPIHandler {
 	}
 
 	/**
-	 * This method is used in constructing API request and response details. To make the Zoho CRM API calls.
+	 * This method is used in constructing API request and response details. To make the Zoho API calls.
 	 * @param {class} className - A Class containing the method return type.
 	 * @param {string} encodeType - A String containing the expected API response content type.
 	 * @see APIHTTPConnector
-	 * @returns {APIResponse} An instance of APIResponse representing the Zoho CRM API response
+	 * @returns {APIResponse} An instance of APIResponse representing the Zoho API response
 	 * @throws {SDKException}
 	 */
 	async apiCall(className, encodeType) {

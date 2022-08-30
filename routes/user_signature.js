@@ -1,9 +1,9 @@
 const Constants = require('../utils/util/constants').Constants;
 
-const SDKException = require("../core/com/zoho/crm/api/exception/sdk_exception").SDKException;
+const SDKException = require('../routes/exception/sdk_exception').SDKException;
 
 /**
- * This class represents the Zoho CRM User.
+ * This class represents the Zoho User.
  */
 class UserSignature {
 
@@ -11,7 +11,7 @@ class UserSignature {
 
 	/**
 	 * Creates an UserSignature class instance with the specified user email.
-	 * @param {string} email - A String containing the CRM user email.
+	 * @param {string} email - A String containing the Zoho user email.
 	 */
 	constructor(email) {
 
@@ -32,7 +32,7 @@ class UserSignature {
 
 	/**
 	 * This is a getter method to get user email.
-	 * @returns {string} A String representing the CRM user email.
+	 * @returns {string} A String representing the Zoho user email.
 	 */
 	getEmail() {
 		return this._email;

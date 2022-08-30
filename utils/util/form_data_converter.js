@@ -47,11 +47,11 @@ class FormDataConverter extends Converter {
                     this.addFileBody(value, formData);
                 }
                 else {
-                    formData.append(key, await this.isObject(value) ? JSON.stringify(value) : value);
+                    formData.append(key, await this.isObject(value) ? this.toJson(value) : value);
                 }
             }
             else {
-                formData.append(key, await this.isObject(value) ? JSON.stringify(value) : value);
+                formData.append(key, await this.isObject(value) ? this.toJson(value) : value);
             }
         }
     }
@@ -235,6 +235,11 @@ class FormDataConverter extends Converter {
 
     getResponse(responseJson, pack) {
         return null;
+    }
+
+    toJson(data) {
+        return JSON.stringify(data, (_, v) => typeof v === 'bigint' ? `${v}n` : v)
+            .replace(/"(-?\d+)n"/g, (_, a) => a);
     }
 }
 

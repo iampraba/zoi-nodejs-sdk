@@ -1,5 +1,5 @@
 /**
- * This class represents the Zoho CRM environment.
+ * This class represents the Zoho environment.
  */
 class Environment {
 
@@ -30,15 +30,15 @@ class Environment {
     }
 
     /**
-     * The method is used to get the Zoho CRM API URL.
-     * @returns {string} A String representing the Zoho CRM API URL.
+     * The method is used to get the Zoho API URL.
+     * @returns {string} A String representing the Zoho API URL.
      */
     getUrl() {
         return this.url;
     }
 
     /**
-     * The method to get the Zoho CRM Accounts URL.
+     * The method to get the Zoho Accounts URL.
      * @returns {string} A String representing the accounts URL.
      */
     getAccountsUrl() {

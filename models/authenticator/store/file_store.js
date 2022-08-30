@@ -1,7 +1,7 @@
 const fs = require('fs');
 const TokenStore = require('./token_store').TokenStore;
 const Constants = require('../../../utils/util/constants').Constants;
-const SDKException = require('../../../core/com/zoho/crm/api/exception/sdk_exception').SDKException;
+const SDKException = require('../../../routes/exception/sdk_exception').SDKException;
 const OAuthToken = require("../oauth_token").OAuthToken;
 const OAuthBuilder = require("../oauth_builder").OAuthBuilder;
 

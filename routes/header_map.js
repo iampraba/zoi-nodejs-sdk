@@ -1,5 +1,5 @@
 const HeaderParamValidator = require("../utils/util/header_param_validator").HeaderParamValidator;
-const SDKException = require("../core/com/zoho/crm/api/exception/sdk_exception").SDKException;
+const SDKException = require('../routes/exception/sdk_exception').SDKException;
 const Constants = require("../utils/util/constants").Constants;
 
 /**

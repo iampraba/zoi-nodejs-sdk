@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const SDKException = require("../../core/com/zoho/crm/api/exception/sdk_exception").SDKException;
+const SDKException = require("../../routes/exception/sdk_exception").SDKException;
 const Constants = require("./constants").Constants;
 
 /**

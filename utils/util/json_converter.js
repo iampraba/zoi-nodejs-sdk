@@ -1,6 +1,6 @@
 let Converter = require("./converter").Converter;
 const Initializer = require("../../routes/initializer").Initializer;
-const SDKException = require("../../core/com/zoho/crm/api/exception/sdk_exception").SDKException;
+const SDKException = require("../../routes/exception/sdk_exception").SDKException;
 const DatatypeConverter = require("../util/datatype_converter").DatatypeConverter;
 const path = require('path');
 const Constants = require("./constants").Constants;

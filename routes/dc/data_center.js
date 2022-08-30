@@ -1,7 +1,7 @@
 const Environment = require("./environment").Environment;
 
 /**
- * The abstract class represents the properties of Zoho CRM DataCenter.
+ * The abstract class represents the properties of Zoho DataCenter.
  */
 class DataCenter {
 

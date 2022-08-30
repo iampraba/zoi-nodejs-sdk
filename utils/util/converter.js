@@ -1,5 +1,5 @@
 const Constants = require("./constants").Constants;
-const SDKException = require("../../core/com/zoho/crm/api/exception/sdk_exception").SDKException;
+const SDKException = require("../../routes/exception/sdk_exception").SDKException;
 const Initializer = require("../../routes/initializer").Initializer;
 const Choice = require("./choice").Choice;
 

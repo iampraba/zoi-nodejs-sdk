@@ -16,7 +16,7 @@ All rights reserved.
 **/
 
 const UserSignature = require("./user_signature").UserSignature;
-const SDKException = require("../core/com/zoho/crm/api/exception/sdk_exception").SDKException;
+const SDKException = require('../routes/exception/sdk_exception').SDKException;
 const Environment = require("../routes/dc/environment").Environment;
 const Token = require("../models/authenticator/token").Token;
 const Store = require("../models/authenticator/store/token_store").TokenStore;
@@ -29,7 +29,7 @@ const SDKLogger = require('./logger/sdk_logger').SDKLogger;
 const SDKConfig = require('./sdk_config').SDKConfig;
 
 /**
- * The class to initialize Zoho CRM SDK.
+ * The class to initialize Zoho SDK.
  */
 class Initializer {
 	static LOCAL = new Map();
@@ -54,8 +54,8 @@ class Initializer {
 
 	/**
 	 * The method is to initialize the SDK.
-	 * @param {UserSignature} user - A UserSignature class instance represents the CRM user.
-	 * @param {Environment} environment - A Environment class instance containing the CRM API base URL and Accounts URL.
+	 * @param {UserSignature} user - A UserSignature class instance represents the Zoho user.
+	 * @param {Environment} environment - A Environment class instance containing the Zoho API base URL and Accounts URL.
 	 * @param {Token} token - A Token class instance containing the OAuth client application information.
 	 * @param {TokenStore} store - A TokenStore class instance containing the token store information.
 	 * @param {SDKConfig} sdkConfig - A SDKConfig class instance containing the configuration.
@@ -141,8 +141,8 @@ class Initializer {
 
 	/**
 	 * This method is to switch the different user in SDK environment.
-	 * @param {UserSignature} user - A UserSignature class instance represents the CRM user.
-	 * @param {Environment} environment - A Environment class instance containing the CRM API base URL and Accounts URL.
+	 * @param {UserSignature} user - A UserSignature class instance represents the Zoho user.
+	 * @param {Environment} environment - A Environment class instance containing the Zoho API base URL and Accounts URL.
 	 * @param {Token} token - A Token class instance containing the OAuth client application information.
 	 * @param {SDKConfig} sdkConfig - A SDKConfig instance representing the configuration
 	 * @param {RequestProxy} proxy - A RequestProxy class instance containing the proxy properties.
@@ -188,8 +188,8 @@ class Initializer {
 	}
 
 	/**
-	 * This is a getter method to get CRM User.
-	 * @returns A User class instance representing the CRM user.
+	 * This is a getter method to get Zoho User.
+	 * @returns A User class instance representing the Zoho user.
 	 */
 	getUser() {
 		return this._user;

@@ -187,7 +187,7 @@ class Constants {
 
     static CONTENT_DISPOSITION = "content-disposition";
 
-    static PACKAGE_PREFIX = 'com.zoho.crm.api.';
+    static PACKAGE_PREFIX = 'com.zoho.';
 
     static INTERFACE = "interface";
 
@@ -301,41 +301,41 @@ class Constants {
 
     static INTEGER_TYPE = "[object Integer]";
 
-    static RECORD_NAMESPACE = 'core/com/zoho/crm/api/record/record';
+    static RECORD_NAMESPACE = 'core/com/zoho/record/record';
 
-    static ATTACHMENTS_NAMESPACE = 'core/com/zoho/crm/api/attachments/attachment';
+    static ATTACHMENTS_NAMESPACE = 'core/com/zoho/attachments/attachment';
 
-    static FIELD_FILE_NAMESPACE = 'core/com/zoho/crm/api/record/file_details';
+    static FIELD_FILE_NAMESPACE = 'core/com/zoho//record/file_details';
 
-    static LINE_TAX_NAMESPACE = 'core/com/zoho/crm/api/record/line_tax';
+    static LINE_TAX_NAMESPACE = 'core/com/zoho/record/line_tax';
 
-    static INVENTORY_LINE_ITEMS = 'core/com/zoho/crm/api/record/inventory_line_items';
+    static INVENTORY_LINE_ITEMS = 'core/com/zoho/record/inventory_line_items';
 
-    static PRICING_DETAILS = 'core/com/zoho/crm/api/record/pricing_details';
+    static PRICING_DETAILS = 'core/com/zoho/record/pricing_details';
 
-    static COMMENT_NAMESPACE = 'core/com/zoho/crm/api/record/comment';
+    static COMMENT_NAMESPACE = 'core/com/zoho/record/comment';
 
-    static PARTICIPANTS = 'core/com/zoho/crm/api/record/participants';
+    static PARTICIPANTS = 'core/com/zoho/record/participants';
 
-    static REMINDAT_NAMESPACE = 'core/com/zoho/crm/api/record/remind_at';
+    static REMINDAT_NAMESPACE = 'core/com/zoho/record/remind_at';
 
-    static CONSENT_NAMESPACE = 'core/com/zoho/crm/api/record/consent';
+    static CONSENT_NAMESPACE = 'core/com/zoho/record/consent';
 
-    static REMINDER_NAMESPACE = 'core/com/zoho/crm/api/record/reminder';
+    static REMINDER_NAMESPACE = 'core/com/zoho/record/reminder';
 
-    static RECURRING_ACTIVITY_NAMESPACE = 'core/com/zoho/crm/api/record/recurring_activity';
+    static RECURRING_ACTIVITY_NAMESPACE = 'core/com/zoho/record/recurring_activity';
 
-    static USER_NAMESPACE = 'core/com/zoho/crm/api/users/user';
+    static USER_NAMESPACE = 'core/com/zoho/users/user';
 
-    static MODULE_NAMESPACE = 'core/com/zoho/crm/api/modules/module';
+    static MODULE_NAMESPACE = 'core/com/zoho/modules/module';
 
-    static LAYOUT_NAMESPACE = 'core/com/zoho/crm/api/layouts/layout';
+    static LAYOUT_NAMESPACE = 'core/com/zoho/layouts/layout';
 
-    static TERRITORY_NAMESPACE = "core/com/zoho/crm/api/record/territory";
+    static TERRITORY_NAMESPACE = "core/com/zoho/record/territory";
 
-    static TAX_NAMESPACE = "core/com/zoho/crm/api/record/tax";
+    static TAX_NAMESPACE = "core/com/zoho/record/tax";
 
-    static IMAGEUPLOAD_NAMESPACE = "core/com/zoho/crm/api/record/image_upload";
+    static IMAGEUPLOAD_NAMESPACE = "core/com/zoho/record/image_upload";
 
     static KEY_VALUES = "keyValues";
 
@@ -347,7 +347,7 @@ class Constants {
 
     static CHOICE_PATH = "./choice";
 
-    static PACKAGE_NAMESPACE = "core/com/zoho/crm/api";
+    static PACKAGE_NAMESPACE = "core/com/zoho";
 
     static MODULEPACKAGENAME = "modulePackageName";
 
@@ -420,8 +420,6 @@ class Constants {
     static CORE = "core";
 
     static SAVE_TOKEN_ERROR = "Exception in saving tokens";
-
-    static SET_TO_CONTENT_TYPE = ["/crm/bulk/v2.1/read", "/crm/bulk/v2.1/write"];
 
     static CONTENT_TYPE_HEADER = "Content-Type";
 
@@ -652,7 +650,7 @@ class Constants {
 
     static INVENTORYTEMPLATE = "inventorytemplate";
 
-    static TEMPLATE = "core/com/zoho/crm/api/send_mail/template";
+    static TEMPLATE = "core/com/zoho/send_mail/template";
 
     static OAUTH_MANDATORY_KEYS = ["grantToken", "refreshToken", "id"];
 
@@ -664,11 +662,11 @@ class Constants {
 
     static PRODUCT_NAME = "Product_Name";
 
-    static LINEITEM_PRODUCT = "core/com/zoho/crm/api/record/line_item_product";
+    static LINEITEM_PRODUCT = "core/com/zoho/record/line_item_product";
 
     static DISCOUNT = "Discount";
 
-    static LINETAX = "core/com/zoho/crm/api/record/line_tax";
+    static LINETAX = "core/com/zoho/record/line_tax";
 
     static NODEJS = "nodejs_";
 

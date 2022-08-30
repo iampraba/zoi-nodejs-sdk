@@ -4,7 +4,7 @@ const Initializer = require("../../routes/initializer").Initializer;
 const Constants = require("../util/constants").Constants;
 const Logger = require("winston");
 const fs = require('fs');
-const SDKException = require('../../core/com/zoho/crm/api/exception/sdk_exception').SDKException;
+const SDKException = require("../../routes/exception/sdk_exception").SDKException;
 
 /**
  * This class handles module field details.

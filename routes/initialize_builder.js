@@ -4,7 +4,7 @@ const Constants = require('../utils/util/constants').Constants;
 
 const Utility = require("../utils/util/utility").Utility;
 
-const SDKException = require("../core/com/zoho/crm/api/exception/sdk_exception").SDKException;
+const SDKException = require('../routes/exception/sdk_exception').SDKException;
 
 const Token = require("../models/authenticator/token").Token;
 

@@ -2,7 +2,7 @@
     "name": "zoi-nodejs-sdk",
     "title": "Zoho Office Integrator NodeJS SDK",
     "description": "NodeJS SDK to integrate zoho office suite editors in to web application.",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "homepage": "https://www.zoho.com/officeplatform/integrator",
     "author": {
         "name": "Team - Zoho Office Integrator",

@@ -190,19 +190,19 @@ Make sure you have [intialized the sdk](#initializing-the-application) before ru
 
 ```js
 
-const OfficeIntegratorSDKOperations = require("zoi-nodejs-sdk/core/com/zoho/crm/api/office_integrator_sdk/office_integrator_sdk_operations").OfficeIntegratorSDKOperations;
-const CreateDocumentParameters = require("zoi-nodejs-sdk/core/com/zoho/crm/api/office_integrator_sdk/create_document_parameters").CreateDocumentParameters;
+const V1Operations = require("zoi-nodejs-sdk/core/com/zoho/crm/api/v1/v1_operations").V1Operations;
+const CreateDocumentParameters = require("zoi-nodejs-sdk/core/com/zoho/crm/api/v1/create_document_parameters").CreateDocumentParameters;
 
 class ZohoWriter {
 
     static async createDocument() {
         try {
-            var sdkOperations = new OfficeIntegratorSDKOperations();
+            var sdk_operations = new V1Operations();
             var create_document_parameters = new CreateDocumentParameters();
 
-            var writerresponse = await sdkOperations.createDocument(create_document_parameters);
+            var writer_response = await sdk_operations.createDocument(create_document_parameters);
 
-            console.log(writerresponse);
+            console.log(writer_response);
         } catch (error) {
             console.log(error);
         }

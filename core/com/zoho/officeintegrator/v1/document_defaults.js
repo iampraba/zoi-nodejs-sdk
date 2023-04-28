@@ -8,6 +8,7 @@ class DocumentDefaults{
 	fontName;
 	fontSize;
 	trackChanges;
+	language;
 	margin;
 	keyModified = new Map();
 	/**
@@ -117,6 +118,28 @@ class DocumentDefaults{
 		}
 		this.trackChanges = trackChanges;
 		this.keyModified.set("track_changes", 1);
+
+	}
+
+	/**
+	 * The method to get the language
+	 * @returns {String} A String representing the language
+	 */
+	getLanguage()	{
+		return this.language;
+
+	}
+
+	/**
+	 * The method to set the value to language
+	 * @param {String} language A String representing the language
+	 */
+	setLanguage(language)	{
+		if((language != null) && (!(Object.prototype.toString.call(language) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: language EXPECTED TYPE: String", null, null);
+		}
+		this.language = language;
+		this.keyModified.set("language", 1);
 
 	}
 

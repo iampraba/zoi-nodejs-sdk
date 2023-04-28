@@ -224,149 +224,6 @@ class JSONConverter extends Converter {
 		return true;
 	}
 
-	async isRecordRequest(recordInstance, classDetail, instanceNumber, memberDetail) {
-		var lookUp = false;
-
-		var skipMandatory = false;
-
-		var classMemberName = null;
-
-		if (memberDetail != null) {
-
-			lookUp = (memberDetail.hasOwnProperty(Constants.LOOKUP) ? memberDetail[Constants.LOOKUP] : false);
-
-			skipMandatory = (memberDetail.hasOwnProperty(Constants.SKIP_MANDATORY) ? memberDetail[Constants.SKIP_MANDATORY] : false);
-
-			classMemberName = this.buildName(memberDetail[Constants.NAME]);
-		}
-
-		var requestJSON = {};
-
-		var moduleDetail = {};
-
-		var moduleAPIName = this.commonAPIHandler.getModuleAPIName();
-
-		if (moduleAPIName != null) {// entry
-			this.commonAPIHandler.setModuleAPIName(null);
-
-			var fullDetail = await Utility.searchJSONDetails(moduleAPIName);// to get correct moduleapiname in proper format
-
-			if (fullDetail != null) {// from Jsondetails
-				moduleDetail = fullDetail[Constants.MODULEDETAILS];
-			}
-			else {// from user spec
-				moduleDetail = await this.getModuleDetailFromUserSpecJSON(moduleAPIName);
-			}
-		}
-		else {// inner case
-			moduleDetail = classDetail;
-
-			classDetail = Initializer.jsonDetails[Constants.RECORD_NAMESPACE];
-		}// class detail must contain record structure at this point
-
-		let uniqueValues = new Map();
-
-		var keyValues = Reflect.get(recordInstance, Constants.KEY_VALUES);
-
-		var keyModified = Reflect.get(recordInstance, Constants.KEY_MODIFIED);
-
-		var requiredKeys = new Map();
-
-		var primaryKeys = new Map();
-
-		if (!skipMandatory) {
-
-			for (let keyName of Object.keys(moduleDetail)) {
-
-				const keyDetail = moduleDetail[keyName];
-
-				let name = keyDetail[Constants.NAME];
-
-				if (keyDetail != null && keyDetail.hasOwnProperty(Constants.REQUIRED) && keyDetail[Constants.REQUIRED] == true) {
-
-					requiredKeys.set(name, true);
-				}
-
-				if (keyDetail != null && keyDetail.hasOwnProperty(Constants.PRIMARY) && keyDetail[Constants.PRIMARY] == true) {
-
-					primaryKeys.set(name, true);
-				}
-			}
-
-			for (let keyName of Object.keys(classDetail)) {
-
-				const keyDetail = classDetail[keyName];
-
-				let name = keyDetail[Constants.NAME];
-
-				if (keyDetail.hasOwnProperty(Constants.REQUIRED) && keyDetail[Constants.REQUIRED] == true) {
-
-					requiredKeys.set(name, true);
-				}
-
-				if (keyDetail.hasOwnProperty(Constants.PRIMARY) && keyDetail[Constants.PRIMARY] == true) {
-
-					primaryKeys.set(name, true);
-				}
-			}
-		}
-
-		for (let keyName of Array.from(keyModified.keys())) {
-
-			if (keyModified.get(keyName) != 1) {
-				continue;
-			}
-
-			let keyDetail = {};
-
-			let keyValue = keyValues.has(keyName) ? keyValues.get(keyName) : null;
-
-			let jsonValue = null;
-
-			if (keyValue != null) {
-				requiredKeys.delete(keyName);
-
-				primaryKeys.delete(keyName);
-			}
-
-			let memberName = this.buildName(keyName);
-
-			if (moduleDetail != null && Object.keys(moduleDetail).length > 0 && (moduleDetail.hasOwnProperty(keyName) || moduleDetail.hasOwnProperty(memberName))) {
-				if (moduleDetail.hasOwnProperty(keyName)) {
-					keyDetail = moduleDetail[keyName];// incase of user spec json
-				}
-
-				else {
-					keyDetail = moduleDetail[memberName];// json details
-				}
-			}
-			else if (classDetail.hasOwnProperty(memberName)) {
-				keyDetail = classDetail[memberName];
-			}
-
-			if (Object.keys(keyDetail).length > 0) {
-				if ((keyDetail.hasOwnProperty(Constants.READ_ONLY) && (keyDetail[Constants.READ_ONLY] == true || keyDetail[Constants.READ_ONLY] == 'true')) || !keyDetail.hasOwnProperty(Constants.NAME)) { // read only or no keyName
-					continue;
-				}
-
-				if (await this.valueChecker(recordInstance.constructor.name, memberName, keyDetail, keyValue, uniqueValues, instanceNumber)) {
-					jsonValue = await this.setData(keyDetail, keyValue);
-				}
-			}
-			else {
-				jsonValue = await this.redirectorForObjectToJSON(keyValue);
-			}
-
-			requestJSON[keyName] = jsonValue;
-		}
-
-		if (skipMandatory || this.checkException(classMemberName, recordInstance, instanceNumber, lookUp, requiredKeys, primaryKeys, new Map())) {
-			return requestJSON;
-		}
-
-		return requestJSON;
-	}
-
 	async setData(memberDetail, fieldValue) {
 		if (fieldValue != null) {
 			let type = memberDetail[Constants.TYPE].toString();
@@ -379,9 +236,6 @@ class JSONConverter extends Converter {
 			}
 			else if (type == Constants.CHOICE_NAMESPACE || (memberDetail.hasOwnProperty(Constants.STRUCTURE_NAME) && memberDetail[Constants.STRUCTURE_NAME] == Constants.CHOICE_NAMESPACE)) {
 				return fieldValue.getValue();
-			}
-			else if (memberDetail.hasOwnProperty(Constants.STRUCTURE_NAME) && memberDetail.hasOwnProperty(Constants.MODULE)) {
-				return await this.isRecordRequest(fieldValue, await this.getModuleDetailFromUserSpecJSON(memberDetail[Constants.MODULE]), null, memberDetail);
 			}
 			else if (memberDetail.hasOwnProperty(Constants.STRUCTURE_NAME)) {
 				return await this.formRequest(fieldValue, memberDetail[Constants.STRUCTURE_NAME], null, memberDetail);
@@ -445,13 +299,6 @@ class JSONConverter extends Converter {
 				if (pack == Constants.CHOICE_NAMESPACE) {
 					for (let request of requestObjects) {
 						jsonArray.push(request.getValue());
-					}
-				}
-				else if (memberDetail.hasOwnProperty(Constants.MODULE) && memberDetail[Constants.MODULE] != null) {
-					let instanceCount = 0;
-
-					for (let request of requestObjects) {
-						jsonArray.push(await this.isRecordRequest(request, await this.getModuleDetailFromUserSpecJSON(memberDetail[Constants.MODULE]), instanceCount++, memberDetail));
 					}
 				}
 				else {
@@ -533,80 +380,6 @@ class JSONConverter extends Converter {
 		return instance;
 	}
 
-	async isRecordResponse(responseJson, classDetail, pack) {
-		let className = require("../../" + pack).MasterModel;
-
-		let recordInstance = new className();
-
-		let moduleAPIName = this.commonAPIHandler.getModuleAPIName();
-
-		let moduleDetail = {};
-
-		if (moduleAPIName != null) { // entry
-			this.commonAPIHandler.setModuleAPIName(null);
-
-			let fullDetail = await Utility.searchJSONDetails(moduleAPIName);// to get correct moduleapiname in proper format
-
-			if (fullDetail != null) {// from Jsondetails
-				moduleDetail = fullDetail[Constants.MODULEDETAILS];
-
-				let moduleClassName = require("../../" + fullDetail[Constants.MODULEPACKAGENAME]).MasterModel;
-
-				recordInstance = new moduleClassName();
-			}
-			else { // from user spec
-				moduleDetail = await this.getModuleDetailFromUserSpecJSON(moduleAPIName);
-			}
-		}
-
-		for (let key in classDetail) {
-			moduleDetail[key] = classDetail[key];
-		}
-
-		var recordDetail = Initializer.jsonDetails[Constants.RECORD_NAMESPACE];
-
-		var keyValues = new Map();
-
-		for (let keyName in responseJson) {
-
-			let memberName = this.buildName(keyName);
-
-			let keyDetail = {};
-
-			if (moduleDetail != null && Object.keys(moduleDetail).length > 0 && (moduleDetail.hasOwnProperty(keyName) || moduleDetail.hasOwnProperty(memberName))) {
-				if (moduleDetail.hasOwnProperty(keyName)) {
-					keyDetail = moduleDetail[keyName];
-				}
-				else {
-					keyDetail = moduleDetail[memberName];
-				}
-			}
-			else if (recordDetail.hasOwnProperty(memberName)) {
-				keyDetail = recordDetail[memberName];
-			}
-
-			let keyValue = null;
-
-			let keyData = responseJson[keyName];
-
-			if (keyDetail != null && Object.keys(keyDetail).length > 0) {
-
-				keyName = keyDetail[Constants.NAME];
-
-				keyValue = await this.getData(keyData, keyDetail);
-			}
-			else {// if not key detail
-				keyValue = await this.redirectorForJSONToObject(keyData);
-			}
-
-			keyValues.set(keyName, keyValue);
-		}
-
-		Reflect.set(recordInstance, Constants.KEY_VALUES, keyValues);
-
-		return recordInstance;
-	}
-
 	async getData(keyData, memberDetail) {
 		let memberValue = null;
 
@@ -623,9 +396,6 @@ class JSONConverter extends Converter {
 				let Choice = require(Constants.CHOICE_PATH).MasterModel;
 
 				memberValue = new Choice(keyData);
-			}
-			else if (memberDetail.hasOwnProperty(Constants.STRUCTURE_NAME) && memberDetail.hasOwnProperty(Constants.MODULE)) {
-				memberValue = await this.isRecordResponse(keyData, await this.getModuleDetailFromUserSpecJSON(memberDetail[Constants.MODULE]), memberDetail[Constants.STRUCTURE_NAME]);
 			}
 			else if (memberDetail.hasOwnProperty(Constants.STRUCTURE_NAME)) {
 				memberValue = await this.getResponse(keyData, memberDetail[Constants.STRUCTURE_NAME]);
@@ -692,11 +462,6 @@ class JSONConverter extends Converter {
 						values.push(choiceInstance);
 					}
 				}
-				else if (memberDetail.hasOwnProperty(Constants.MODULE) && memberDetail[Constants.MODULE] != null) {
-					for (let response of responses) {
-						values.push(await this.isRecordResponse(response, await this.getModuleDetailFromUserSpecJSON(memberDetail[Constants.MODULE]), pack));
-					}
-				}
 				else {
 					for (let response of responses) {
 						values.push(await this.getResponse(response, pack));
@@ -706,16 +471,6 @@ class JSONConverter extends Converter {
 		}
 
 		return values;
-	}
-
-	async getModuleDetailFromUserSpecJSON(module) {
-		let initializer = await Initializer.getInitializer();
-
-		var recordFieldDetailsPath = path.join(initializer.getResourcePath(), Constants.FIELD_DETAILS_DIRECTORY, await this.getEncodedFileName());
-
-		var moduleDetail = await Utility.getJSONObject(Initializer.getJSON(recordFieldDetailsPath), module);
-
-		return moduleDetail;
 	}
 
 	async redirectorForJSONToObject(keyData) {

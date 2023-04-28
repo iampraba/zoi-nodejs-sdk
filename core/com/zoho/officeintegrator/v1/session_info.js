@@ -8,6 +8,8 @@ class SessionInfo{
 	createdTime;
 	expiresOnMs;
 	expiresOn;
+	sessionUrl;
+	sessionDeleteUrl;
 	keyModified = new Map();
 	/**
 	 * The method to get the documentId
@@ -116,6 +118,50 @@ class SessionInfo{
 		}
 		this.expiresOn = expiresOn;
 		this.keyModified.set("expires_on", 1);
+
+	}
+
+	/**
+	 * The method to get the sessionUrl
+	 * @returns {String} A String representing the sessionUrl
+	 */
+	getSessionUrl()	{
+		return this.sessionUrl;
+
+	}
+
+	/**
+	 * The method to set the value to sessionUrl
+	 * @param {String} sessionUrl A String representing the sessionUrl
+	 */
+	setSessionUrl(sessionUrl)	{
+		if((sessionUrl != null) && (!(Object.prototype.toString.call(sessionUrl) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionUrl EXPECTED TYPE: String", null, null);
+		}
+		this.sessionUrl = sessionUrl;
+		this.keyModified.set("session_url", 1);
+
+	}
+
+	/**
+	 * The method to get the sessionDeleteUrl
+	 * @returns {String} A String representing the sessionDeleteUrl
+	 */
+	getSessionDeleteUrl()	{
+		return this.sessionDeleteUrl;
+
+	}
+
+	/**
+	 * The method to set the value to sessionDeleteUrl
+	 * @param {String} sessionDeleteUrl A String representing the sessionDeleteUrl
+	 */
+	setSessionDeleteUrl(sessionDeleteUrl)	{
+		if((sessionDeleteUrl != null) && (!(Object.prototype.toString.call(sessionDeleteUrl) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionDeleteUrl EXPECTED TYPE: String", null, null);
+		}
+		this.sessionDeleteUrl = sessionDeleteUrl;
+		this.keyModified.set("session_delete_url", 1);
 
 	}
 

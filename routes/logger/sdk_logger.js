@@ -6,6 +6,22 @@ class SDKLogger {
     constructor(loggerInstance) {
         var winston = require('winston');
 
+        if(typeof variable === 'undefined' || loggerInstance === null || loggerInstance == null) {
+            winston.configure({
+                level: 'info', // No I18N
+    
+                format: winston.format.combine(
+                    winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), // No I18N
+                    winston.format.prettyPrint()
+                ),
+    
+                transports: [
+                    new winston.transports.Console()
+                ]
+            });
+            return;
+        }
+
         winston.configure({
             level: loggerInstance.level,
 

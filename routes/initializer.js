@@ -46,8 +46,6 @@ class Initializer {
 
 	static jsonDetails;
 
-	_resourcePath;
-
 	_requestProxy;
 
 	_sdkConfig;
@@ -59,12 +57,11 @@ class Initializer {
 	 * @param {Token} token - A Token class instance containing the OAuth client application information.
 	 * @param {TokenStore} store - A TokenStore class instance containing the token store information.
 	 * @param {SDKConfig} sdkConfig - A SDKConfig class instance containing the configuration.
-	 * @param {String} resourcePath - A String containing the absolute directory path to store user specific JSON files containing module fields information.
 	 * @param {loggerFile.Logger} logger - A Logger class instance containing the log file path and Logger type.
 	 * @param {RequestProxy} proxy - A RequestProxy class instance containing the proxy properties of the user.
 	 * @throws {SDKException}
 	 */
-	static async initialize(user, environment, token, store, sdkConfig, resourcePath, logger = null, proxy = null) {
+	static async initialize(user, environment, token, store, sdkConfig, logger = null, proxy = null) {
 		try {
 			SDKLogger.initialize(logger);
 
@@ -88,8 +85,6 @@ class Initializer {
 			initializer._store = store;
 
 			initializer._sdkConfig = sdkConfig;
-
-			initializer._resourcePath = resourcePath;
 
 			initializer._requestProxy = proxy;
 
@@ -162,8 +157,6 @@ class Initializer {
 
 		initializer._requestProxy = proxy;
 
-		initializer._resourcePath = Initializer.initializer.getResourcePath();
-
 		Initializer.LOCAL.set(await initializer.getEncodedKey(user, environment), initializer);
 
 		Initializer.initializer = initializer;
@@ -209,14 +202,6 @@ class Initializer {
 	 */
 	getToken() {
 		return this._token;
-	}
-
-	/**
-	 * This is a getter method to get resourcePath value.
-	 * @returns A String value representing the resourcePath.
-	 */
-	getResourcePath() {
-		return this._resourcePath;
 	}
 
 	/**

@@ -13,6 +13,7 @@
 * [Initialization](#initializing-the-application)
 * [Responses And Exceptions](#responses-and-exceptions)
 * [Sample Code](#sdk-sample-code)
+* [Release Notes](#release-notes)
 * [License](#license)
 
 ## Getting Started
@@ -188,10 +189,11 @@ All other exceptions such as SDK anomalies and other unexpected behaviours are t
 
 Make sure you have [intialized the sdk](#initializing-the-application) before running below sample code snippet.
 
+
 ```js
 
-const V1Operations = require("zoi-nodejs-sdk/core/com/zoho/crm/api/v1/v1_operations").V1Operations;
-const CreateDocumentParameters = require("zoi-nodejs-sdk/core/com/zoho/crm/api/v1/create_document_parameters").CreateDocumentParameters;
+const V1Operations = require("zoi-nodejs-sdk/core/com/zoho/crm/api/officeintegrator/v1/v1_operations").V1Operations;
+const CreateDocumentParameters = require("zoi-nodejs-sdk/core/com/zoho/crm/api/officeintegrator/v1/create_document_parameters").CreateDocumentParameters;
 
 class ZohoWriter {
 
@@ -211,6 +213,22 @@ class ZohoWriter {
 
 ZohoWriter.createDocument();
 ```
+
+Refer this **[repository](https://github.com/iampraba/zoi-nodejs-sdk-demo-app)** for example codes to all Office Integrator API endpoints.
+
+
+## Release Notes
+
+*Version 1.1.0*
+
+- [Get all writer document session](https://www.zoho.com/officeintegrator/api/v1/zoho-writer-get-document-sessions.html) information api support added
+- [Spreadsheet](https://www.zoho.com/officeintegrator/api/v1/sheet-conversion-api.html) and [Presentation](https://www.zoho.com/officeintegrator/api/v1/show-conversion-api.html) conversion api endpoint support added
+- Language parameter support added for [create document api](https://www.zoho.com/officeintegrator/api/v1/zoho-writer-create-document.html#doc_defaults) endpoint document defaults parameter.
+- Package renamed to *\*/core/com/zoho/crm/api/officeintegrator/v1/\** from *\*/core/com/zoho/crm/api/officeintegrator/officeintegratorsdk/\**. If your application has [zoi-nodejs-sdk]([url](https://www.npmjs.com/package/zoi-nodejs-sdk)) version below **1.1.0**, please check  your application code and update with above package name as mentioned above.
+- API ResponseWrapper changed to service specific response wrappers.
+    - ZohoWriter api's(/writer/*) will return WriterResponseWrapper instead of ResponseWrapper object.
+    - ZohoSheet api's(/sheet/*) will return SheetResponseWrapper instead of ResponseWrapper object.
+    - ZohoShow api's(/show/*) will return SheetResponseWrapper instead of ResponseWrapper object.
 
 ## License
 

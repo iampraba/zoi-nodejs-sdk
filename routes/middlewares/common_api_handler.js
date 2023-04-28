@@ -377,6 +377,7 @@ class CommonAPIHandler {
 			case "video/3gpp":
 			case "video/3gpp2":
 			case "font/ttf":
+			case "docx":
 				type = new Downloader(this);
 				break;
 		}

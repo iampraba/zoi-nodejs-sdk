@@ -1,29 +1,52 @@
 const Constants = require("../../../../../utils/util/constants").MasterModel;
 const SDKException = require("../../../../../routes/exception/sdk_exception").MasterModel;
 
-class FileDeleteSuccessResponse{
+class SessionUserInfo{
 
-	docDelete;
+	displayName;
+	userId;
 	keyModified = new Map();
 	/**
-	 * The method to get the docDelete
-	 * @returns {Boolean} A Boolean representing the docDelete
+	 * The method to get the displayName
+	 * @returns {String} A String representing the displayName
 	 */
-	getDocDelete()	{
-		return this.docDelete;
+	getDisplayName()	{
+		return this.displayName;
 
 	}
 
 	/**
-	 * The method to set the value to docDelete
-	 * @param {Boolean} docDelete A Boolean representing the docDelete
+	 * The method to set the value to displayName
+	 * @param {String} displayName A String representing the displayName
 	 */
-	setDocDelete(docDelete)	{
-		if((docDelete != null) && (!(Object.prototype.toString.call(docDelete) == "[object Boolean]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: docDelete EXPECTED TYPE: Boolean", null, null);
+	setDisplayName(displayName)	{
+		if((displayName != null) && (!(Object.prototype.toString.call(displayName) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: displayName EXPECTED TYPE: String", null, null);
 		}
-		this.docDelete = docDelete;
-		this.keyModified.set("doc_delete", 1);
+		this.displayName = displayName;
+		this.keyModified.set("display_name", 1);
+
+	}
+
+	/**
+	 * The method to get the userId
+	 * @returns {String} A String representing the userId
+	 */
+	getUserId()	{
+		return this.userId;
+
+	}
+
+	/**
+	 * The method to set the value to userId
+	 * @param {String} userId A String representing the userId
+	 */
+	setUserId(userId)	{
+		if((userId != null) && (!(Object.prototype.toString.call(userId) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: userId EXPECTED TYPE: String", null, null);
+		}
+		this.userId = userId;
+		this.keyModified.set("user_id", 1);
 
 	}
 
@@ -61,6 +84,6 @@ class FileDeleteSuccessResponse{
 
 }
 module.exports = {
-	MasterModel : FileDeleteSuccessResponse,
-	FileDeleteSuccessResponse : FileDeleteSuccessResponse
+	MasterModel : SessionUserInfo,
+	SessionUserInfo : SessionUserInfo
 }

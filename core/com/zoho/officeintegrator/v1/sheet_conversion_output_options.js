@@ -1,29 +1,52 @@
 const Constants = require("../../../../../utils/util/constants").MasterModel;
 const SDKException = require("../../../../../routes/exception/sdk_exception").MasterModel;
 
-class SessionDeleteSuccessResponse{
+class SheetConversionOutputOptions{
 
-	sessionDelete;
+	format;
+	documentName;
 	keyModified = new Map();
 	/**
-	 * The method to get the sessionDelete
-	 * @returns {Boolean} A Boolean representing the sessionDelete
+	 * The method to get the format
+	 * @returns {String} A String representing the format
 	 */
-	getSessionDelete()	{
-		return this.sessionDelete;
+	getFormat()	{
+		return this.format;
 
 	}
 
 	/**
-	 * The method to set the value to sessionDelete
-	 * @param {Boolean} sessionDelete A Boolean representing the sessionDelete
+	 * The method to set the value to format
+	 * @param {String} format A String representing the format
 	 */
-	setSessionDelete(sessionDelete)	{
-		if((sessionDelete != null) && (!(Object.prototype.toString.call(sessionDelete) == "[object Boolean]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: sessionDelete EXPECTED TYPE: Boolean", null, null);
+	setFormat(format)	{
+		if((format != null) && (!(Object.prototype.toString.call(format) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: format EXPECTED TYPE: String", null, null);
 		}
-		this.sessionDelete = sessionDelete;
-		this.keyModified.set("session_delete", 1);
+		this.format = format;
+		this.keyModified.set("format", 1);
+
+	}
+
+	/**
+	 * The method to get the documentName
+	 * @returns {String} A String representing the documentName
+	 */
+	getDocumentName()	{
+		return this.documentName;
+
+	}
+
+	/**
+	 * The method to set the value to documentName
+	 * @param {String} documentName A String representing the documentName
+	 */
+	setDocumentName(documentName)	{
+		if((documentName != null) && (!(Object.prototype.toString.call(documentName) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentName EXPECTED TYPE: String", null, null);
+		}
+		this.documentName = documentName;
+		this.keyModified.set("document_name", 1);
 
 	}
 
@@ -61,6 +84,6 @@ class SessionDeleteSuccessResponse{
 
 }
 module.exports = {
-	MasterModel : SessionDeleteSuccessResponse,
-	SessionDeleteSuccessResponse : SessionDeleteSuccessResponse
+	MasterModel : SheetConversionOutputOptions,
+	SheetConversionOutputOptions : SheetConversionOutputOptions
 }

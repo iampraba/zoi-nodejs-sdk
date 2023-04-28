@@ -39,8 +39,6 @@ class InitializeBuilder {
 
     _token;
 
-    _resourcePath;
-
     _requestProxy;
 
     _sdkConfig;
@@ -84,16 +82,8 @@ class InitializeBuilder {
         if(this._sdkConfig == null) {
             this._sdkConfig = new SDKConfigBuilder().build();
         }
-
-        if(this._resourcePath == null) {
-            this._resourcePath = path.join(__dirname, "../../../../", '');
-        }
-
-        if (this._logger == null) {
-            this._logger = new LogBuilder().level(Levels.INFO).filePath(path.join(__dirname, "../../../../", Constants.LOG_FILE_NAME)).build();
-        }
         
-        Initializer.initialize(this._user, this._environment, this._token, this._store, this._sdkConfig, this._resourcePath, this._logger, this._requestProxy);
+        Initializer.initialize(this._user, this._environment, this._token, this._store, this._sdkConfig, this._logger, this._requestProxy);
     }
 
     switchUser() {
@@ -164,16 +154,6 @@ class InitializeBuilder {
         }
 
         this._requestProxy = requestProxy;
-
-        return this;
-    }
-
-    resourcePath(resourcePath) {
-        if (resourcePath != null && !fs.statSync(resourcePath).isDirectory()) {
-            throw new SDKException(this.errorMessage, Constants.RESOURCE_PATH_INVALID_ERROR_MESSAGE);
-        }
-
-        this._resourcePath = resourcePath;
 
         return this;
     }

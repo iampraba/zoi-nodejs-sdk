@@ -3,7 +3,7 @@ const CommonAPIHandler = require("../../../../../routes/middlewares/common_api_h
 const Constants = require("../../../../../utils/util/constants").MasterModel;
 const SDKException = require("../../../../../routes/exception/sdk_exception").MasterModel;
 
-class OfficeIntegratorSDKOperations{
+class V1Operations{
 	/**
 	 * The method to create document
 	 * @param {CreateDocumentParameters} request An instance of CreateDocumentParameters
@@ -23,8 +23,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -47,8 +47,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -71,8 +71,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -95,8 +95,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -119,8 +119,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -143,8 +143,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -167,8 +167,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -191,8 +191,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -215,8 +215,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -239,8 +239,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -263,8 +263,31 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
+
+	}
+
+	/**
+	 * The method to get all sessions
+	 * @param {String} documentid A String representing the documentid
+	 * @returns {APIResponse} An instance of APIResponse
+	 * @throws {SDKException}
+	 */
+	async getAllSessions(documentid)	{
+		if((!(Object.prototype.toString.call(documentid) == "[object String]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: documentid EXPECTED TYPE: String", null, null);
+		}
+		var handlerInstance = new CommonAPIHandler();
+		var apiPath = '';
+		apiPath = apiPath.concat("/writer/officeapi/v1/documents/");
+		apiPath = apiPath.concat(documentid.toString());
+		apiPath = apiPath.concat("/sessions");
+		handlerInstance.setAPIPath(apiPath);
+		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_GET);
+		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -285,8 +308,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_GET);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -307,8 +330,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_DELETE);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let Object = require.resolve("./object");
-		return handlerInstance.apiCall(Object, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -329,8 +352,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_GET);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -351,8 +374,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_DELETE);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let WriterResponseHandler = require.resolve("./writer_response_handler");
+		return handlerInstance.apiCall(WriterResponseHandler, "application/json");
 
 	}
 
@@ -375,8 +398,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let SheetResponseHandler = require.resolve("./sheet_response_handler");
+		return handlerInstance.apiCall(SheetResponseHandler, "application/json");
 
 	}
 
@@ -399,8 +422,32 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let SheetResponseHandler = require.resolve("./sheet_response_handler");
+		return handlerInstance.apiCall(SheetResponseHandler, "application/json");
+
+	}
+
+	/**
+	 * The method to convert sheet
+	 * @param {SheetConversionParameters} request An instance of SheetConversionParameters
+	 * @returns {APIResponse} An instance of APIResponse
+	 * @throws {SDKException}
+	 */
+	async convertSheet(request)	{
+		const SheetConversionParameters = require("./sheet_conversion_parameters").MasterModel;
+		if((request != null) && (!(request instanceof SheetConversionParameters)))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: request EXPECTED TYPE: SheetConversionParameters", null, null);
+		}
+		var handlerInstance = new CommonAPIHandler();
+		var apiPath = '';
+		apiPath = apiPath.concat("/sheet/officeapi/v1/spreadsheet/convert");
+		handlerInstance.setAPIPath(apiPath);
+		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_POST);
+		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
+		handlerInstance.setContentType("multipart/form-data");
+		handlerInstance.setRequest(request);
+		let SheetResponseHandler = require.resolve("./sheet_response_handler");
+		return handlerInstance.apiCall(SheetResponseHandler, "application/json");
 
 	}
 
@@ -421,8 +468,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_GET);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let SheetResponseHandler = require.resolve("./sheet_response_handler");
+		return handlerInstance.apiCall(SheetResponseHandler, "application/json");
 
 	}
 
@@ -438,13 +485,13 @@ class OfficeIntegratorSDKOperations{
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
-		apiPath = apiPath.concat("/sheet/officeapi/v1/sessions/");
+		apiPath = apiPath.concat("/sheet/officeapi/v1/session/");
 		apiPath = apiPath.concat(sessionid.toString());
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_DELETE);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let SheetResponseHandler = require.resolve("./sheet_response_handler");
+		return handlerInstance.apiCall(SheetResponseHandler, "application/json");
 
 	}
 
@@ -465,8 +512,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_DELETE);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let SheetResponseHandler = require.resolve("./sheet_response_handler");
+		return handlerInstance.apiCall(SheetResponseHandler, "application/json");
 
 	}
 
@@ -489,8 +536,32 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let ShowResponseHandler = require.resolve("./show_response_handler");
+		return handlerInstance.apiCall(ShowResponseHandler, "application/json");
+
+	}
+
+	/**
+	 * The method to convert presentation
+	 * @param {ConvertPresentationParameters} request An instance of ConvertPresentationParameters
+	 * @returns {APIResponse} An instance of APIResponse
+	 * @throws {SDKException}
+	 */
+	async convertPresentation(request)	{
+		const ConvertPresentationParameters = require("./convert_presentation_parameters").MasterModel;
+		if((request != null) && (!(request instanceof ConvertPresentationParameters)))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: request EXPECTED TYPE: ConvertPresentationParameters", null, null);
+		}
+		var handlerInstance = new CommonAPIHandler();
+		var apiPath = '';
+		apiPath = apiPath.concat("/show/officeapi/v1/presentation/convert");
+		handlerInstance.setAPIPath(apiPath);
+		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_POST);
+		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
+		handlerInstance.setContentType("multipart/form-data");
+		handlerInstance.setRequest(request);
+		let ShowResponseHandler = require.resolve("./show_response_handler");
+		return handlerInstance.apiCall(ShowResponseHandler, "application/json");
 
 	}
 
@@ -513,8 +584,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
 		handlerInstance.setContentType("multipart/form-data");
 		handlerInstance.setRequest(request);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let ShowResponseHandler = require.resolve("./show_response_handler");
+		return handlerInstance.apiCall(ShowResponseHandler, "application/json");
 
 	}
 
@@ -535,8 +606,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_GET);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let ShowResponseHandler = require.resolve("./show_response_handler");
+		return handlerInstance.apiCall(ShowResponseHandler, "application/json");
 
 	}
 
@@ -552,13 +623,13 @@ class OfficeIntegratorSDKOperations{
 		}
 		var handlerInstance = new CommonAPIHandler();
 		var apiPath = '';
-		apiPath = apiPath.concat("/show/officeapi/v1/sessions/");
+		apiPath = apiPath.concat("/show/officeapi/v1/session/");
 		apiPath = apiPath.concat(sessionid.toString());
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_DELETE);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let ShowResponseHandler = require.resolve("./show_response_handler");
+		return handlerInstance.apiCall(ShowResponseHandler, "application/json");
 
 	}
 
@@ -579,8 +650,8 @@ class OfficeIntegratorSDKOperations{
 		handlerInstance.setAPIPath(apiPath);
 		handlerInstance.setHttpMethod(Constants.REQUEST_METHOD_DELETE);
 		handlerInstance.setCategoryMethod(Constants.REQUEST_CATEGORY_READ);
-		let ResponseHandler = require.resolve("./response_handler");
-		return handlerInstance.apiCall(ResponseHandler, "application/json");
+		let ShowResponseHandler = require.resolve("./show_response_handler");
+		return handlerInstance.apiCall(ShowResponseHandler, "application/json");
 
 	}
 
@@ -603,6 +674,6 @@ class OfficeIntegratorSDKOperations{
 
 }
 module.exports = {
-	MasterModel : OfficeIntegratorSDKOperations,
-	OfficeIntegratorSDKOperations : OfficeIntegratorSDKOperations
+	MasterModel : V1Operations,
+	V1Operations : V1Operations
 }

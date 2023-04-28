@@ -1,9 +1,3 @@
-const path = require('path');
-const Converter = require("./converter").Converter;
-const Initializer = require("../../routes/initializer").Initializer;
-const Constants = require("../util/constants").Constants;
-const Logger = require("winston");
-const fs = require('fs');
 const SDKException = require("../../routes/exception/sdk_exception").SDKException;
 
 /**
@@ -28,26 +22,6 @@ class Utility {
         if (value == null) {
             throw new SDKException(errorCode, errorMessage);
         }
-    }
-    static async searchJSONDetails(key) {
-        key = Constants.PACKAGE_NAMESPACE + "/record/" + key;
-
-        var jsonDetails = Initializer.jsonDetails;
-
-        for (let keyInJSON in jsonDetails) {
-
-            if (keyInJSON.toLowerCase() == key.toLowerCase()) {
-                let returnJSON = {};
-
-                returnJSON[Constants.MODULEPACKAGENAME] = keyInJSON;
-
-                returnJSON[Constants.MODULEDETAILS] = jsonDetails[keyInJSON];
-
-                return returnJSON;
-            }
-        }
-
-        return null;
     }
 
     static async getJSONObject(json, key) {

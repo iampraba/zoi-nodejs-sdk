@@ -54,13 +54,15 @@ class HeaderParamValidator {
         return Initializer.jsonDetails;
     }
 
-    getFileName(name) {
-        let fileName = [];
-
+    async getFileName(name) {
         let spl = name.toString().split(".");
+        let className = await this.getSplitFileName(spl.pop());
+        let resourceName = await this.getSplitFileName(spl.pop());
+        return "core/" + spl.join("/").toLowerCase() + "/" + resourceName.join("_") + "/" + className.join("_"); //No i18N
+    }
 
-        let className = spl.pop();
-
+    async getSplitFileName(className) {
+        let fileName = []
         let nameParts = className.split(/([A-Z][a-z]+)/).filter(function (e) { return e });
 
         fileName.push(nameParts[0].toLowerCase());
@@ -68,8 +70,8 @@ class HeaderParamValidator {
         for (let i = 1; i < nameParts.length; i++) {
             fileName.push(nameParts[i].toLowerCase());
         }
-
-        return "core/" + spl.join("/").toLowerCase() + "/" + fileName.join("_");
+    
+        return fileName;
     }
 
     async getKeyJSONDetails(name, jsonDetails) {

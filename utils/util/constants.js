@@ -301,42 +301,6 @@ class Constants {
 
     static INTEGER_TYPE = "[object Integer]";
 
-    static RECORD_NAMESPACE = 'core/com/zoho/record/record';
-
-    static ATTACHMENTS_NAMESPACE = 'core/com/zoho/attachments/attachment';
-
-    static FIELD_FILE_NAMESPACE = 'core/com/zoho//record/file_details';
-
-    static LINE_TAX_NAMESPACE = 'core/com/zoho/record/line_tax';
-
-    static INVENTORY_LINE_ITEMS = 'core/com/zoho/record/inventory_line_items';
-
-    static PRICING_DETAILS = 'core/com/zoho/record/pricing_details';
-
-    static COMMENT_NAMESPACE = 'core/com/zoho/record/comment';
-
-    static PARTICIPANTS = 'core/com/zoho/record/participants';
-
-    static REMINDAT_NAMESPACE = 'core/com/zoho/record/remind_at';
-
-    static CONSENT_NAMESPACE = 'core/com/zoho/record/consent';
-
-    static REMINDER_NAMESPACE = 'core/com/zoho/record/reminder';
-
-    static RECURRING_ACTIVITY_NAMESPACE = 'core/com/zoho/record/recurring_activity';
-
-    static USER_NAMESPACE = 'core/com/zoho/users/user';
-
-    static MODULE_NAMESPACE = 'core/com/zoho/modules/module';
-
-    static LAYOUT_NAMESPACE = 'core/com/zoho/layouts/layout';
-
-    static TERRITORY_NAMESPACE = "core/com/zoho/record/territory";
-
-    static TAX_NAMESPACE = "core/com/zoho/record/tax";
-
-    static IMAGEUPLOAD_NAMESPACE = "core/com/zoho/record/image_upload";
-
     static KEY_VALUES = "keyValues";
 
     static KEY_MODIFIED = "keyModified";
@@ -353,47 +317,11 @@ class Constants {
 
     static MODULEDETAILS = "moduleDetails";
 
-    static KEYS_TO_SKIP = ["Created_Time", "Modified_Time", "Created_By", "Modified_By", "Tag"];
-
-    static PRODUCT_DETAILS = "Product_Details";
-
-    static PRICING_DETAILS_API_NAME = "Pricing_Details";
-
-    static PARTICIPANT_API_NAME = "Participants";
-
-    static COMMENTS = 'Comments';
-
-    static SOLUTIONS = 'solutions';
-
-    static CASES = 'cases';
-
-    static NOTES = "notes";
-
-    static ATTACHMENTS = "$attachments";
-
-    static INVENTORY_MODULES = ["invoices", "sales_orders", "purchase_orders", "quotes"];
-
-    static PRICE_BOOKS = "price_books";
-
-    static EVENTS = "events";
-
-    static CALLS = "calls";
-
     static CALL_DURATION = "call_duration";
 
     static ACTIVITIES = "activities";
 
-    static LAYOUT = "Layout";
-
-    static SUBFORM = "subform";
-
-    static LOOKUP = "lookup";
-
-    static SE_MODULE = "se_module";
-
     static FIELDS_LAST_MODIFIED_TIME = "FIELDS-LAST-MODIFIED-TIME";
-
-    static ATTACHMENT_ID = "attachment_id";
 
     static FILE_ID = "file_id";
 
@@ -404,8 +332,6 @@ class Constants {
     static DELETE_MODULE_FROM_FIELDFILE_ERROR = "Exception in deleting module from Fields file";
 
     static HTTP = "http";
-
-    static CONTENT_API_URL = "content.zohoapis.com";
 
     static INVALID_URL_ERROR = "Invalid URL Error";
 
@@ -422,8 +348,6 @@ class Constants {
     static SAVE_TOKEN_ERROR = "Exception in saving tokens";
 
     static CONTENT_TYPE_HEADER = "Content-Type";
-
-    static EVENTS_MODULE_PARAMS = ["startDateTime", "endDateTime"];
 
     static FILE_BODY_WRAPPER = "file_body_wrapper";
 
@@ -591,82 +515,17 @@ class Constants {
 
     static REGULAR_EXPRESSION = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-    static DEFAULT_MODULENAME_VS_APINAME = new Map([
-        ["leads", "Leads"],
-        ["contacts", "Contacts"],
-        ["accounts", "Accounts"],
-        ["deals", "Deals"],
-        ["tasks", "Tasks"],
-        ["events", "Events"],
-        ["activities", "Activities"],
-        ["calls", "Calls"],
-        ["products", "Products"],
-        ["quotes", "Quotes"],
-        ["sales_orders", "Sales_Orders"],
-        ["purchase_orders", "Purchase_Orders"],
-        ["invoices", "Invoices"],
-        ["campaigns", "Campaigns"],
-        ["vendors", "Vendors"],
-        ["price_books", "Price_Books"],
-        ["cases", "Cases"],
-        ["solutions", "Solutions"],
-        ["visits", "Visits"],
-        ["approvals", "Approvals"],
-        ["notes", "Notes"],
-        ["attachments", "Attachments"],
-        ["actions_performed", "Actions_Performed"]
-    ]);
-
-    static PHOTO_SUPPORTED_MODULES = ["leads", "contacts", "accounts", "products", "vendors"];
-
     static GENERATED_TYPE = "generated_type";
 
     static GENERATED_TYPE_CUSTOM = "custom";
 
-    static UPLOAD_PHOTO_UNSUPPORTED_ERROR = "UPLOAD PHOTO UNSUPPORTED MODULE";
-
-    static UPLOAD_PHOTO_UNSUPPORTED_MESSAGE = "Photo Upload Operation is not supported by the module: ";
-
-    static KEY_VS_INVENTORY_MODULE = new Map([
-        ["Quoted_Items", "quotes"],
-        ["Invoiced_Items", "invoices"],
-        ["Purchase_Items", "purchase_orders"],
-        ["Ordered_Items", "sales_orders"]
-    ]);
-
-    static MULTI_SELECT_LOOKUP = "multiselectlookup";
-
-    static MULTI_USER_LOOKUP = "multiuserlookup";
-
     static NO_ACCESS_TOKEN_ERROR = "ACCESS TOKEN IS NOT PRESENT IN RESPONSE";
-
-    static TERRITORIES = "territories";
-
-    static TERRITORY = "Territory";
-
-    static PRODUCTS = "Products";
-
-    static TAX = "TAX";
-
-    static INVENTORYTEMPLATE = "inventorytemplate";
-
-    static TEMPLATE = "core/com/zoho/send_mail/template";
 
     static OAUTH_MANDATORY_KEYS = ["grantToken", "refreshToken", "id"];
 
     static INVALID_TOKEN_ERROR = "INVALID TOKEN ERROR";
 
     static SDK_MODULE_METADATA = "SDK-MODULE-METADATA";
-
-    static INVENTORY_MODULES_ITEMS = ["invoiced_items", "quoted_items", "purchase_items", "ordered_items"];
-
-    static PRODUCT_NAME = "Product_Name";
-
-    static LINEITEM_PRODUCT = "core/com/zoho/record/line_item_product";
-
-    static DISCOUNT = "Discount";
-
-    static LINETAX = "core/com/zoho/record/line_tax";
 
     static NODEJS = "nodejs_";
 
@@ -675,10 +534,6 @@ class Constants {
     static REQUEST_PROXY = "request_proxy";
 
     static COUNT = "count";
-
-    static SKIP_MODULES = ["deals"];
-
-    static OWNER_LOOKUP = "ownerlookup";
 
     static NUMBER_TYPE = "[object Number]";
 }

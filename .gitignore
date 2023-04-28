@@ -102,3 +102,30 @@ dist
 
 # TernJS port file
 .tern-port
+
+# IDE related files #
+######################
+.classpath
+.project
+.settings
+.idea
+.metadata
+*.iml
+*.ipr
+/bin/
+**/sdk_tokens.txt
+/build
+
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*.orig

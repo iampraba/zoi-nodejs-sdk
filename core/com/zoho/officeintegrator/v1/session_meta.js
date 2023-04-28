@@ -5,6 +5,7 @@ class SessionMeta{
 
 	status;
 	info;
+	userInfo;
 	keyModified = new Map();
 	/**
 	 * The method to get the status
@@ -48,6 +49,29 @@ class SessionMeta{
 		}
 		this.info = info;
 		this.keyModified.set("info", 1);
+
+	}
+
+	/**
+	 * The method to get the userInfo
+	 * @returns {SessionUserInfo} An instance of SessionUserInfo
+	 */
+	getUserInfo()	{
+		return this.userInfo;
+
+	}
+
+	/**
+	 * The method to set the value to userInfo
+	 * @param {SessionUserInfo} userInfo An instance of SessionUserInfo
+	 */
+	setUserInfo(userInfo)	{
+		const SessionUserInfo = require("./session_user_info").MasterModel;
+		if((userInfo != null) && (!(userInfo instanceof SessionUserInfo)))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: userInfo EXPECTED TYPE: SessionUserInfo", null, null);
+		}
+		this.userInfo = userInfo;
+		this.keyModified.set("user_info", 1);
 
 	}
 

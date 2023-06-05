@@ -224,7 +224,7 @@ Refer this **[repository](https://github.com/iampraba/zoi-nodejs-sdk-demo-app)**
 - [Get all writer document session](https://www.zoho.com/officeintegrator/api/v1/zoho-writer-get-document-sessions.html) information api support added
 - [Spreadsheet](https://www.zoho.com/officeintegrator/api/v1/sheet-conversion-api.html) and [Presentation](https://www.zoho.com/officeintegrator/api/v1/show-conversion-api.html) conversion api endpoint support added
 - Language parameter support added for [create document api](https://www.zoho.com/officeintegrator/api/v1/zoho-writer-create-document.html#doc_defaults) endpoint document defaults parameter.
-- Package renamed to *\*/core/com/zoho/crm/api/officeintegrator/v1/\** from *\*/core/com/zoho/crm/api/officeintegrator/officeintegratorsdk/\**. If your application has [zoi-nodejs-sdk]([url](https://www.npmjs.com/package/zoi-nodejs-sdk)) version below **1.1.0**, please check  your application code and update with above package name as mentioned above.
+- Package renamed to *\*/core/com/zoho/officeintegrator/v1/\** from *\*/core/com/zoho/crm/api/officeintegrator/officeintegratorsdk/\**. If your application has [zoi-nodejs-sdk]([url](https://www.npmjs.com/package/zoi-nodejs-sdk)) version below **1.1.0**, please check  your application code and update with above package name as mentioned above.
 - API ResponseWrapper changed to service specific response wrappers.
     - ZohoWriter api's(/writer/*) will return WriterResponseWrapper instead of ResponseWrapper object.
     - ZohoSheet api's(/sheet/*) will return SheetResponseWrapper instead of ResponseWrapper object.

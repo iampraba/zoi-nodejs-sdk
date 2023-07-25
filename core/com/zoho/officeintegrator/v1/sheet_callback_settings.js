@@ -5,8 +5,8 @@ class SheetCallbackSettings{
 
 	saveFormat;
 	saveUrl;
-	savetype;
 	saveUrlParams;
+	saveUrlHeaders;
 	keyModified = new Map();
 	/**
 	 * The method to get the saveFormat
@@ -53,28 +53,6 @@ class SheetCallbackSettings{
 	}
 
 	/**
-	 * The method to get the savetype
-	 * @returns {String} A String representing the savetype
-	 */
-	getSavetype()	{
-		return this.savetype;
-
-	}
-
-	/**
-	 * The method to set the value to savetype
-	 * @param {String} savetype A String representing the savetype
-	 */
-	setSavetype(savetype)	{
-		if((savetype != null) && (!(Object.prototype.toString.call(savetype) == "[object String]")))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: savetype EXPECTED TYPE: String", null, null);
-		}
-		this.savetype = savetype;
-		this.keyModified.set("savetype", 1);
-
-	}
-
-	/**
 	 * The method to get the saveUrlParams
 	 * @returns {Map} A Map representing the saveUrlParams
 	 */
@@ -93,6 +71,28 @@ class SheetCallbackSettings{
 		}
 		this.saveUrlParams = saveUrlParams;
 		this.keyModified.set("save_url_params", 1);
+
+	}
+
+	/**
+	 * The method to get the saveUrlHeaders
+	 * @returns {Map} A Map representing the saveUrlHeaders
+	 */
+	getSaveUrlHeaders()	{
+		return this.saveUrlHeaders;
+
+	}
+
+	/**
+	 * The method to set the value to saveUrlHeaders
+	 * @param {Map} saveUrlHeaders A Map representing the saveUrlHeaders
+	 */
+	setSaveUrlHeaders(saveUrlHeaders)	{
+		if((saveUrlHeaders != null) && (!(Object.prototype.toString.call(saveUrlHeaders) == "[object Map]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: saveUrlHeaders EXPECTED TYPE: Map", null, null);
+		}
+		this.saveUrlHeaders = saveUrlHeaders;
+		this.keyModified.set("save_url_headers", 1);
 
 	}
 

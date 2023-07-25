@@ -9,6 +9,7 @@ class CallbackSettings{
 	retries;
 	timeout;
 	saveUrlParams;
+	saveUrlHeaders;
 	keyModified = new Map();
 	/**
 	 * The method to get the saveFormat
@@ -139,6 +140,28 @@ class CallbackSettings{
 		}
 		this.saveUrlParams = saveUrlParams;
 		this.keyModified.set("save_url_params", 1);
+
+	}
+
+	/**
+	 * The method to get the saveUrlHeaders
+	 * @returns {Map} A Map representing the saveUrlHeaders
+	 */
+	getSaveUrlHeaders()	{
+		return this.saveUrlHeaders;
+
+	}
+
+	/**
+	 * The method to set the value to saveUrlHeaders
+	 * @param {Map} saveUrlHeaders A Map representing the saveUrlHeaders
+	 */
+	setSaveUrlHeaders(saveUrlHeaders)	{
+		if((saveUrlHeaders != null) && (!(Object.prototype.toString.call(saveUrlHeaders) == "[object Map]")))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: saveUrlHeaders EXPECTED TYPE: Map", null, null);
+		}
+		this.saveUrlHeaders = saveUrlHeaders;
+		this.keyModified.set("save_url_headers", 1);
 
 	}
 

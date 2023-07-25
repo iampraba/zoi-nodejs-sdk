@@ -28,7 +28,10 @@
         "form-data": "^4.0.0",
         "got": "^11.2.0",
         "tunnel": "^0.0.6",
-        "winston": "^3.7.2"
+        "winston": "^3.7.2",
+        "date": "^1.0.2",
+        "string-format": "^2.0.0",
+        "utils": "^0.3.1"
     },
     "keywords": [ 
         "zoho"

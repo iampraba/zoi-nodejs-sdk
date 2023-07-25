@@ -58,7 +58,7 @@ class CreatePresentationParameters{
 
 	/**
 	 * The method to get the callbackSettings
-	 * @returns {ShowCallbackSettings} An instance of ShowCallbackSettings
+	 * @returns {CallbackSettings} An instance of CallbackSettings
 	 */
 	getCallbackSettings()	{
 		return this.callbackSettings;
@@ -67,12 +67,12 @@ class CreatePresentationParameters{
 
 	/**
 	 * The method to set the value to callbackSettings
-	 * @param {ShowCallbackSettings} callbackSettings An instance of ShowCallbackSettings
+	 * @param {CallbackSettings} callbackSettings An instance of CallbackSettings
 	 */
 	setCallbackSettings(callbackSettings)	{
-		const ShowCallbackSettings = require("./show_callback_settings").MasterModel;
-		if((callbackSettings != null) && (!(callbackSettings instanceof ShowCallbackSettings)))	{
-			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: callbackSettings EXPECTED TYPE: ShowCallbackSettings", null, null);
+		const CallbackSettings = require("./callback_settings").MasterModel;
+		if((callbackSettings != null) && (!(callbackSettings instanceof CallbackSettings)))	{
+			throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: callbackSettings EXPECTED TYPE: CallbackSettings", null, null);
 		}
 		this.callbackSettings = callbackSettings;
 		this.keyModified.set("callback_settings", 1);

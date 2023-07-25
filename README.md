@@ -219,6 +219,11 @@ Refer this **[repository](https://github.com/iampraba/zoi-nodejs-sdk-demo-app)**
 
 ## Release Notes
 
+*Version 1.1.1*
+
+- ShowCallbackSettings class removed and CallbackSettings class used instead of above mentioned class.
+- save_url_headers option added in callback_setting configuration.
+
 *Version 1.1.0*
 
 - [Get all writer document session](https://www.zoho.com/officeintegrator/api/v1/zoho-writer-get-document-sessions.html) information api support added
